@@ -1,0 +1,9 @@
+#+TITLE: CHIL: Constructing Hardware in Lisp
+
+* CHIL --- Constructing Hardware in Lisp
+
+Based on the ideas of parameterized hardware with higher-level type-checking from [[https://chisel-lang.org][Chisel]] and [[https://www.cs.indiana.edu/~dyb/pubs/nano-jfp.pdf][Nanopass Compiler Construction]].
+In addition, the highly malleable Lisp family of languages can allow for syntactic extensions that would be very difficult in Verilog, SystemVerilog, or VHDL, or simply difficult in Scala and Chisel.
+
+* Why?
+I personally felt this when specialty connection operators were required to be defined as experimental in chisel3; operators which I needed to connect hardware together.
