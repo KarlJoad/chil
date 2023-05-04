@@ -13,5 +13,16 @@
   (inputs '() :type list)
   (outputs '() :type list))
 
+(defun generate-verilog-module-args (direction args)
+  "Generate Verilog argument string based on ARGS, noting the DIRECTION of the
+arguments in the string as well.
+
+The two directions supported are the symbols 'input and 'output."
+  (defun arg->string (arg)
+    (format nil "~a type ~a,~&" (string-downcase (symbol-name direction)) arg))
+
+  (uiop:reduce/strcat
+   (mapcar #'arg->string args)))
+
 (defun hello ()
   (print "Hello world, from CHIL."))
