@@ -43,3 +43,6 @@ GTAGS
 
 # MacOS thing
 .DS_Store
+
+# Verilog files
+**.v
