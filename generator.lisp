@@ -47,3 +47,11 @@ The two directions supported are the symbols 'input and 'output."
 (defmethod generate ((generator systemverilog-generator) module)
   "Generate SystemVerilog for the provided MODULE.")
 
+
+;;; VHDL Generator
+(defclass vhdl-generator (hdl-generator)
+  ())
+
+(defmethod generate ((generator vhdl-generator) module)
+  "Generate VHDL for the provided MODULE."
+  ())
