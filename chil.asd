@@ -1,4 +1,5 @@
 (defsystem "chil"
+  :author "Karl Hallsby <karl@hallsby.com>"
   :components ((:file "chil"))
   :in-order-to ((test-op (test-op "chil/tests"))))
 
