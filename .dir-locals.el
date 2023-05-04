@@ -1,6 +1,6 @@
 ;; Per-directory local variables for GNU Emacs 23 and later.
 
-((nil . ((fill-column . 120)
+((nil . ((fill-column . 78)
          (sentence-end-double-space . t)
 
          ;; Emacs-Guix
