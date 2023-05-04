@@ -24,5 +24,17 @@ The two directions supported are the symbols 'input and 'output."
   (uiop:reduce/strcat
    (mapcar #'arg->string args)))
 
+(defun generate-verilog (module)
+  "Generate the Verilog corresponding to the provided Chil MODULE."
+  (uiop:strcat
+   (format nil "module ~a" (module-name module))
+   (format nil "(~&")
+   (generate-module-args 'input (module-inputs module))
+   (generate-module-args 'output (module-outputs module))
+   (format nil ")~&")
+   ;; TODO: Get indentation working
+   (format nil "body;~&")
+   (format nil "endmodule // ~a" (module-name module))))
+
 (defun hello ()
   (print "Hello world, from CHIL."))
