@@ -36,5 +36,16 @@ The two directions supported are the symbols 'input and 'output."
    (format nil "body;~&")
    (format nil "endmodule // ~a" (module-name module))))
 
+(defun write-out-module-verilog (module &optional file-name)
+  "Generate the lower-level representation of MODULE and write to disk.
+
+You may optionally provide a name for the generated file. By default, this file
+is named \"module-name.v\"."
+  (with-open-file (out file-name
+                       :direction :output
+                       :if-exists :supersede
+                       :if-does-not-exist :create)
+    (write-string (generate-verilog module) out)))
+
 (defun hello ()
   (print "Hello world, from CHIL."))
