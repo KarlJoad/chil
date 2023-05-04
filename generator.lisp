@@ -39,3 +39,11 @@ The two directions supported are the symbols 'input and 'output."
    (format nil "body;~&")
    (format nil "endmodule // ~a" (chil:module-name module))))
 
+
+;;; SystemVerilog Generator
+(defclass systemverilog-generator (hdl-generator)
+  ())
+
+(defmethod generate ((generator systemverilog-generator) module)
+  "Generate SystemVerilog for the provided MODULE.")
+
