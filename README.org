@@ -5,5 +5,34 @@
 Based on the ideas of parameterized hardware with higher-level type-checking from [[https://chisel-lang.org][Chisel]] and [[https://www.cs.indiana.edu/~dyb/pubs/nano-jfp.pdf][Nanopass Compiler Construction]].
 In addition, the highly malleable Lisp family of languages can allow for syntactic extensions that would be very difficult in Verilog, SystemVerilog, or VHDL, or simply difficult in Scala and Chisel.
 
+** Dependencies
+  * A Common Lisp compiler (SBCL preferred)
+    - I am trying to write this in a portable way (as this is mostly a DSL), so any compiler may work.
+  * ASDF (Another System Definition Facility)
+    - This is the *build tool*
+    - It does /*NOT*/ download dependencies for you!
+  * Quicklisp
+    - This is the package management tool for Common Lisp.
+    - Quicklisp plugs into ASDF to download /and/ load/build the source for you.
+  * UIOP (Utilities for Implementation and OS Portability)
+  * Alexandria
+  * [[https://github.com/AccelerationNet/lisp-unit2][~lisp-unit2~]]
+    - Only needed for testing!
+
+** Building
+CHIL builds using the standard ASDF build system.
+
+*** Building on the REPL
+Make sure ASDF is capable of finding your copy of CHIL.
+   1. ~(asdf:compile-system :chil)~
+
+** Testing
+CHIL uses lisp-unit2 for its unit testing system.
+
+*** Testing on the REPL
+Make sure ASDF if capable of finding your copy of CHIL and lisp-unit2.
+   * ~(asdf:test-system :chil)~
+   * ~(lisp-unit2:run-tests :package :chil/tests)~
+
 * Why?
 I personally felt this when specialty connection operators were required to be defined as experimental in chisel3; operators which I needed to connect hardware together.
