@@ -2,7 +2,8 @@
   :author "Karl Hallsby <karl@hallsby.com>"
   :description "Constructing Hardware In Lisp"
   :components ((:file "chil")
-               (:file "module"))
+               (:file "module")
+               (:file "generator"))
   :in-order-to ((test-op (test-op "chil/tests"))))
 
 (defsystem "chil/tests"
