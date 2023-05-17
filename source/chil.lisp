@@ -4,7 +4,9 @@
            #:module
            #:module-name
            #:module-inputs
-           #:module-outputs))
+           #:module-outputs
+           #:generate
+           #:verilog-generator))
 
 (in-package :chil)
 
