@@ -19,6 +19,10 @@
                :outputs '("addr" "valid"))
   "CHIL Module for testing that has only outputs, no inputs, and no body.")
 
+(defun generate-verilog (module)
+  "Helper function to generate verilog modules."
+  (chil:generate (make-instance 'chil:verilog-generator) module))
+
 (define-test generate-verilog-empty-module ()
   (assert-eql "module test-empty(
 )
