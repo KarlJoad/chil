@@ -1,22 +1,22 @@
 (in-package :chil/tests)
 
-(defparameter *test-module-empty* (make-module-struct :name "test")
+(defparameter *test-module-empty* (chil:module "test-empty")
   "CHIL Module for testing that has no inputs, no outputs, and no body.")
 
 (defparameter *test-module-inputs*
-  (make-module-struct :name "test"
-                      :inputs '("addr" "ready"))
+  (chil:module "test-inputs"
+               :inputs '("addr" "ready"))
   "CHIL Module for testing that has only inputs, no outputs, and no body.")
 
 (defparameter *test-module-outputs*
-  (make-module-struct :name "test"
-                      :outputs '("addr" "valid"))
+  (chil:module "test-outputs"
+               :outputs '("addr" "valid"))
   "CHIL Module for testing that has only outputs, no inputs, and no body.")
 
 (defparameter *test-module-inputs-outputs*
-  (make-module-struct :name "test"
-                      :inputs '("addr" "valid")
-                      :outputs '("addr" "valid"))
+  (chil:module "test-inputs-outputs"
+               :inputs '("addr" "valid")
+               :outputs '("addr" "valid"))
   "CHIL Module for testing that has only outputs, no inputs, and no body.")
 
 (define-test generate-verilog-empty-module ()
