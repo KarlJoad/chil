@@ -1,6 +1,7 @@
 (defsystem "chil"
   :author "Karl Hallsby <karl@hallsby.com>"
   :description "Constructing Hardware In Lisp"
+  :pathname #p"source/"
   :components ((:file "chil")
                (:file "module")
                (:file "generator"))
