@@ -9,4 +9,5 @@
 
 (defsystem "chil/tests"
   :depends-on ("chil" "alexandria" "lisp-unit2")
-  :components ((:file "tests/example")))
+  :pathname #p"tests/"
+  :components ((:file "example")))
