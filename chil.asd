@@ -10,4 +10,5 @@
 (defsystem "chil/tests"
   :depends-on ("chil" "alexandria" "lisp-unit2")
   :pathname #p"tests/"
-  :components ((:file "example")))
+  :components ((:file "example")
+               (:file "write-verilog")))
