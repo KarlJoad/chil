@@ -6,7 +6,8 @@
            #:module-inputs
            #:module-outputs
            #:generate
-           #:verilog-generator))
+           #:verilog-generator
+           #:log2up))
 
 (in-package :chil)
 
