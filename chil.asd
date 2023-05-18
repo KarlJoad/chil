@@ -15,4 +15,5 @@
   :depends-on ("chil" "alexandria" "lisp-unit2")
   :pathname #p"tests/"
   :components ((:file "example")
-               (:file "write-verilog")))
+               (:file "write-verilog")
+               (:file "utils")))
