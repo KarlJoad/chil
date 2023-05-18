@@ -4,7 +4,7 @@
   :pathname #p"source/"
   :components ((:file "chil")
                (:file "module")
-               (:file "generator"))
+               (:file "generator" :depends-on ("module")))
   :in-order-to ((test-op (test-op "chil/tests"))))
 
 (defsystem "chil/tests"
