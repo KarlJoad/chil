@@ -9,6 +9,10 @@
                 :pathname ""
                 :depends-on ()
                 :components ((:file "utils")))
+               (:module "Types"
+                :pathname "types/"
+                :depends-on ("Utils")
+                :components ((:file "data"))))
   :in-order-to ((test-op (test-op "chil/tests"))))
 
 (defsystem "chil/tests"
