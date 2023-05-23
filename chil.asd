@@ -7,7 +7,13 @@
                 :pathname ""
                 :depends-on ("chil")
                 :components ((:file "module")))
-               (:file "generator" :depends-on ("Module"))
+               (:module "Backends"
+                :pathname #p"backends/"
+                :depends-on ("Module")
+                :components ((:file "base")
+                             (:file "verilog")
+                             (:file "vhdl")
+                             (:file "system-verilog")))
                (:module "Utils"
                 :pathname ""
                 :depends-on ()

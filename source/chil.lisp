@@ -10,8 +10,6 @@
            #:module-name
            #:module-inputs
            #:module-outputs
-           #:generate
-           #:verilog-generator
            #:data
            #:pack
            #:unpack

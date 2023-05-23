@@ -1,14 +1,5 @@
-(in-package :chil)
+(in-package :chil/backends)
 
-
-;;; Abstract HDL generator class
-(defclass hdl-generator ()
-  ())
-
-(defgeneric generate (generator module stream)
-  (:documentation "Abstract method to generate the provided CHIL MODULE as another HDL."))
-
-
 ;;; Verilog Generator
 (defclass verilog-generator (hdl-generator)
   ())
@@ -37,20 +28,3 @@ The two directions supported are the symbols 'input and 'output."
    ;; TODO: Get indentation working
    (format stream "body;~&")
    (format stream "endmodule // ~a" (chil:module-name module))))
-
-
-;;; SystemVerilog Generator
-(defclass systemverilog-generator (hdl-generator)
-  ())
-
-(defmethod generate ((generator systemverilog-generator) module stream)
-  "Generate SystemVerilog for the provided MODULE.")
-
-
-;;; VHDL Generator
-(defclass vhdl-generator (hdl-generator)
-  ())
-
-(defmethod generate ((generator vhdl-generator) module stream)
-  "Generate VHDL for the provided MODULE."
-  ())
