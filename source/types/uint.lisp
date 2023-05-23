@@ -10,7 +10,7 @@
 
 (defun uint (val)
   "Create a unsigned integer object (CHIL:UINT) with the specified VAL."
-  (let ((width (log2up val)))
+  (let ((width (chil/utils:log2up val)))
     (make-instance 'uint :value val :width width)))
 
 (defmethod print-object ((obj uint) stream)

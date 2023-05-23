@@ -1,4 +1,8 @@
-(in-package :chil)
+(defpackage :chil/utils
+  (:use :cl)
+  (:export #:log2up))
+
+(in-package :chil/utils)
 
 (defun log2up (val)
   "Compute the number of bits required to represent VAL in binary."

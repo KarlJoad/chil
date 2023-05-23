@@ -15,8 +15,7 @@
            #:data
            #:pack
            #:unpack
-           #:uint
-           #:log2up))
+           #:uint))
 
 (in-package :chil)
 
