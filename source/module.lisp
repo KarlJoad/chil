@@ -1,5 +1,16 @@
 (in-package :chil)
 
+;; NOTE: Wrapping the symbol name in + is not done here (e.g. +ps+) because I
+;; think having the bare symbol makes things easier to read.
+(defconstant s 's "Seconds as a symbol evaluating to itself.")
+(defconstant ms 'ms "Milliseconds as a symbol evaluating to itself.")
+(defconstant us 'us "Microseconds as a symbol evaluating to itself.")
+(defconstant ns 'ns "Nanoseconds as a symbol evaluating to itself.")
+(defconstant ps 'ps "Picoseconds as a symbol evaluating to itself.")
+(defconstant fs 'fs "Femtoseconds as a symbol evaluating to itself.")
+
+(defparameter *valid-time-units* (list s ms us ns ps fs))
+
 (defstruct (module
             (:constructor module (name &key (inputs '()) (outputs '()))))
   (name "" :type string)
