@@ -52,9 +52,16 @@
    ;; maximal time-resolution for this module."
    :type time-spec))
 
+
+;;;
+;;; The low-level definition of a module. This closely matches up with Verilog's
+;;; notion of a module.
+;;;
 (defstruct (module
-            (:constructor module (name &key (inputs '()) (outputs '()))))
+            (:constructor module (name &key (inputs '()) (outputs '())
+                                       timescale)))
   (name "" :type string)
+  (timescale (timescale) :type timescale)
   ;; FIXME: inputs/outputs should be set, not list. We want to prevent people
   ;; from using the same symbol in the input/output collections.
   ;; TODO: But we DO allow the same object to be present in both.
