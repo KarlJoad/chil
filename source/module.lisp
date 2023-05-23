@@ -11,6 +11,10 @@
 
 (defparameter *valid-time-units* (list s ms us ns ps fs))
 
+(defun valid-time-unitp (obj)
+  "Verify if provided OBJ uses a valid time unit."
+  (member obj *valid-time-units*))
+
 (defstruct (module
             (:constructor module (name &key (inputs '()) (outputs '()))))
   (name "" :type string)
