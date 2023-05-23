@@ -5,6 +5,7 @@
            #:time-spec-amount
            #:time-spec-units
            #:make-time-spec
+           #:timescale
            #:module
            #:module-name
            #:module-inputs

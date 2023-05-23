@@ -39,6 +39,19 @@
         obj
       (format stream "Amount: ~a, Units: ~a @" amount units))))
 
+;; TODO: timescale constructor should verify that time-unit and time-precision
+;; make sense together. E.G. time-unit = 1ps while time-precision=1ms makes no
+;; sense.
+(defstruct (timescale
+            (:constructor timescale (&optional time-unit time-precision)))
+  (time-unit (make-time-spec 1 ns)
+   ;; "Measurement of delays and simulation time."
+   :type time-spec)
+  (time-precision (make-time-spec 1 ps)
+   ;; "How delay values are rounded before being used in simulation. Namely, the
+   ;; maximal time-resolution for this module."
+   :type time-spec))
+
 (defstruct (module
             (:constructor module (name &key (inputs '()) (outputs '()))))
   (name "" :type string)
