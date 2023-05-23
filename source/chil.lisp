@@ -4,6 +4,7 @@
            #:time-spec
            #:time-spec-amount
            #:time-spec-units
+           #:make-time-spec
            #:module
            #:module-name
            #:module-inputs

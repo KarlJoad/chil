@@ -25,6 +25,13 @@
     :initform ps
     :accessor units)))
 
+(defun make-time-spec (amount units)
+  "Create a time-spec object with the provided AMOUNT and UNITS."
+  (assert (and (integerp amount)
+               (not (minusp amount))
+               (valid-time-unitp units)))
+  (make-instance 'time-spec :amount amount :units units))
+
 (defstruct (module
             (:constructor module (name &key (inputs '()) (outputs '()))))
   (name "" :type string)
