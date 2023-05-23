@@ -32,6 +32,13 @@
                (valid-time-unitp units)))
   (make-instance 'time-spec :amount amount :units units))
 
+(defmethod print-object ((obj time-spec) stream)
+  (print-unreadable-object (obj stream :type t :identity t)
+    (with-accessors ((amount amount)
+                     (units units))
+        obj
+      (format stream "Amount: ~a, Units: ~a @" amount units))))
+
 (defstruct (module
             (:constructor module (name &key (inputs '()) (outputs '()))))
   (name "" :type string)
