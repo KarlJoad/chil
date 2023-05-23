@@ -1,6 +1,9 @@
 (defpackage :chil
   (:use :cl)
   (:export #:hello
+           #:time-spec
+           #:time-spec-amount
+           #:time-spec-units
            #:module
            #:module-name
            #:module-inputs

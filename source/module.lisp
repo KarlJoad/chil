@@ -15,6 +15,16 @@
   "Verify if provided OBJ uses a valid time unit."
   (member obj *valid-time-units*))
 
+(defclass time-spec ()
+  ((amount
+    :initarg :amount
+    :initform 1
+    :accessor amount)
+   (units
+    :initarg :units
+    :initform ps
+    :accessor units)))
+
 (defstruct (module
             (:constructor module (name &key (inputs '()) (outputs '()))))
   (name "" :type string)
