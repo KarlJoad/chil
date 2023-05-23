@@ -10,6 +10,7 @@
            #:data
            #:pack
            #:unpack
+           #:uint
            #:log2up))
 
 (in-package :chil)

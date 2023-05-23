@@ -12,7 +12,8 @@
                (:module "Types"
                 :pathname "types/"
                 :depends-on ("Utils")
-                :components ((:file "data"))))
+                :components ((:file "data")
+                             (:file "uint"))))
   :in-order-to ((test-op (test-op "chil/tests"))))
 
 (defsystem "chil/tests"
