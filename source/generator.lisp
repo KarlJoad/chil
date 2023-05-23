@@ -5,9 +5,7 @@
 (defclass hdl-generator ()
   ())
 
-(defgeneric generate-module-args (generator direction args))
-
-(defgeneric generate (generator module)
+(defgeneric generate (generator module stream)
   (:documentation "Abstract method to generate the provided CHIL MODULE as another HDL."))
 
 
@@ -15,36 +13,37 @@
 (defclass verilog-generator (hdl-generator)
   ())
 
-(defmethod generate-module-args ((generator verilog-generator) direction args)
-  "Generate Verilog argument string based on ARGS, noting the DIRECTION of the
+(defmethod generate ((generator verilog-generator) module stream)
+  "Generate Verilog for the provided MODULE."
+
+  (defun module-args (direction args)
+    "Generate Verilog argument string based on ARGS, noting the DIRECTION of the
 arguments in the string as well.
 
 The two directions supported are the symbols 'input and 'output."
-  (defun arg->string (arg)
-    (format nil "~a type ~a,~&" (string-downcase (symbol-name direction)) arg))
+    (defun arg->string (arg)
+      (format stream "~a type ~a,~&" (string-downcase (symbol-name direction)) arg))
 
-  (uiop:reduce/strcat
-   (mapcar #'arg->string args)))
+    (uiop:reduce/strcat
+     (mapcar #'arg->string args)))
 
-(defmethod generate ((generator verilog-generator) module)
-  "Generate Verilog for the provided MODULE."
   (uiop:strcat
-   (format nil "module ~a" (chil:module-name module))
-   (format nil "(~&")
-   (generate-module-args generator 'input (chil:module-inputs module))
-   (generate-module-args generator 'output (chil:module-outputs module))
-   (format nil ")~&")
+   (format stream "module ~a" (chil:module-name module))
+   (format stream "(~&")
+   (module-args 'input (chil:module-inputs module))
+   (module-args 'output (chil:module-outputs module))
+   (format stream ")~&")
    ;; TODO: Actually write a real body
    ;; TODO: Get indentation working
-   (format nil "body;~&")
-   (format nil "endmodule // ~a" (chil:module-name module))))
+   (format stream "body;~&")
+   (format stream "endmodule // ~a" (chil:module-name module))))
 
 
 ;;; SystemVerilog Generator
 (defclass systemverilog-generator (hdl-generator)
   ())
 
-(defmethod generate ((generator systemverilog-generator) module)
+(defmethod generate ((generator systemverilog-generator) module stream)
   "Generate SystemVerilog for the provided MODULE.")
 
 
@@ -52,6 +51,6 @@ The two directions supported are the symbols 'input and 'output."
 (defclass vhdl-generator (hdl-generator)
   ())
 
-(defmethod generate ((generator vhdl-generator) module)
+(defmethod generate ((generator vhdl-generator) module stream)
   "Generate VHDL for the provided MODULE."
   ())

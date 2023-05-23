@@ -29,10 +29,10 @@ is named \"module-name.v\"."
                        :direction :output
                        :if-exists :supersede
                        :if-does-not-exist :create)
-    (write-string (generate (make-instance 'verilog-generator) module) out)))
+    (generate (make-instance 'verilog-generator) module out)))
 
 (defun hello ()
   (let ((m (module "test"
                    :inputs '("addr" "ready")
                    :outputs '("data" "valid"))))
-    (generate (make-instance 'verilog-generator) m)))
+    (generate (make-instance 'verilog-generator) m nil)))

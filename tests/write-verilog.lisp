@@ -21,7 +21,7 @@
 
 (defun generate-verilog (module)
   "Helper function to generate verilog modules."
-  (chil:generate (make-instance 'chil:verilog-generator) module))
+  (chil:generate (make-instance 'chil:verilog-generator) module nil))
 
 (define-test generate-verilog-empty-module ()
   (assert-equal "module test-empty(
