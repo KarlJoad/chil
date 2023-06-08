@@ -3,8 +3,11 @@
   :description "Constructing Hardware In Lisp"
   :pathname #p"source/"
   :components ((:file "chil")
-               (:file "module")
-               (:file "generator" :depends-on ("module"))
+               (:module "Module"
+                :pathname ""
+                :depends-on ("chil")
+                :components ((:file "module")))
+               (:file "generator" :depends-on ("Module"))
                (:module "Utils"
                 :pathname ""
                 :depends-on ()
