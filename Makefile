@@ -15,3 +15,7 @@ chil_files := chil.asd $(shell find . -type f -name '*.lisp')
 .PHONY: build
 build: $(chil_files)
 	$(lisp_eval) '(asdf:compile-system :chil)'
+
+chil_tests := chil.asd $(shell find ./tests/ -type f -name '*.lisp')
+check: $(chil_files) $(chil_tests)
+	$(lisp_eval) '(asdf:test-system :chil)'
