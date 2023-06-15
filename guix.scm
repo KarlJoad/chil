@@ -44,7 +44,7 @@
              (gnu packages lisp-check))
 
 (define %srcdir
-  (or (current-source-directory) "."))
+  (or (current-source-directory) "source"))
 
 (define (git-version)
   (let* ((pipe (with-directory-excursion %srcdir
