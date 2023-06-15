@@ -36,7 +36,7 @@
              (guix licenses)
              (guix utils)
              (guix gexp)
-             (guix build-system gnu)
+             (guix build-system asdf)
              (gnu packages)
              (gnu packages autotools)
              (gnu packages lisp)
@@ -57,30 +57,16 @@
   (name "chil")
   (version (git-version))
   (source (local-file (dirname %srcdir) #:recursive? #t))
-  (build-system gnu-build-system)
-  (arguments
-   '(#:phases
-     (modify-phases %standard-phases
-       ;; (add-after 'unpack 'bootstrap
-       ;;   (lambda _ (zero? (system* "sh" "bootstrap"))))
-       (delete 'configure)
-       (delete 'build)
-       (delete 'check)
-       (replace 'install
-         (lambda _
-           (let ((out (assoc-ref %outputs "out")))
-                       (mkdir out)
-                       (call-with-output-file (string-append out "/chil.lisp")
-                         (lambda (p)
-                           (display '(hello guix) p))))))
-       )))
+  (build-system asdf-build-system/sbcl)
   (native-inputs
    (list cl-lisp-unit2
          sbcl))
   (inputs
    (list cl-alexandria
          cl-slime-swank
-         cl-slynk))
+         cl-slynk
+         ;; cl-stmx ;; Transactional memory for simulator updates. https://stmx.org/features/
+         ))
   (synopsis "Constructing Hardware in Lisp")
   (description "CHIL (Constructing Hardware in Lisp)")
   (home-page "http://github.com/KarlJoad/chil")
