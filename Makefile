@@ -21,3 +21,9 @@ chil_tests := chil.asd $(shell find ./tests/ -type f -name '*.lisp')
 check: $(chil_files) $(chil_tests)
 	$(lisp_eval) '(asdf:test-system :chil)' \
 	--eval "(lisp-unit2:run-tests :package :chil/tests :run-contexts #'lisp-unit2:with-summary-context)"
+
+# FIXME: Currently has issue in make-image.lisp where chil: package cannot be found.
+image_script := $(shell find ./scripts/ -type f -name 'make-image.lisp')
+.PHONY: image
+image: $(chil_files) $(image_script)
+	$(lisp_eval) '' --load $(image_script)
