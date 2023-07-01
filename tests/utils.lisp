@@ -10,6 +10,6 @@
 (define-test log2up-normal ()
   (assert-equal 1 (chil/utils:log2up 1))
   (assert-equal 2 (chil/utils:log2up 2))
-  (assert-equal 8 (chil/utils:log2up 127))
+  (assert-equal 7 (chil/utils:log2up 127))
   (assert-equal 8 (chil/utils:log2up 128))
-  (assert-equal 9 (chil/utils:log2up 129)))
+  (assert-equal 8 (chil/utils:log2up 129)))
