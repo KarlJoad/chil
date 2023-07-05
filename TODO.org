@@ -1,0 +1,60 @@
+#+TITLE: TODO
+
+* Testing
+  1. Property-based testing of pure functions.
+     For example, ~chil:log2up~ should be property tested.
+     This way I only have to write the properties required, and not any actual implementation.
+     Possible candidates:
+     * [[https://github.com/DalekBaldwin/check-it][check-it]] (Last update 2015-06-05)
+     * [[https://github.com/mcandre/cl-quickcheck][cl-quickcheck]] (Last update 2020-05-08)
+
+* Higher-level Hardware
+  1. Create higher-level versions of ~chil:module~ that is less painful to use, but can be converted into low-level Verilog-like format currently being used.
+     Should support an implicit reset & clock, which can be overridden with a ~(with-reset/clock ...)~ macro(?).
+     * Higher-level version should *NOT* have Verilog-specific information included in its definition.
+       This includes things like ~timescale~.
+       ~timescale~ should be handled at the Verilog level, but needs to be passed through as metadata attached to the higher-level module.
+  2. This higher-level hardware should support things like mixins.
+     Chisel has the ability to create a new module that ~extend~-s another, so that the new one inherits that hardware.
+     It also has the ability to use composition, so you can say a signal "bundle" *must* and *will* contain these other signals, which have certain methods already defined for them.
+     * See Chapter 2.1 (Hooks) of Common Lisp Condition System for underying idea on how to implement mixins similar to Chisel.
+       Should use catch/signal/error/handler-bind for real thing though. See Chapter 2.2 for that.
+     * Might want to use restarts instead?
+     * Reference the [[https://lispcookbook.github.io/cl-cookbook][Common Lisp Cookbook]]
+
+* Optimization
+Within Chil, I would like to have an optimization framework for the higher-level language.
+I am not sure how much optimization is possible in the long-run.
+But for the small actively-working capacity of my mind, the [[https://github.com/nanopass][Nanopass Framework]] makes the most sense to me.
+
+  1. I might have to implement the [[https://github.com/nanopass][Nanopass Framework]] in ANSI Common Lisp...
+     * If I did that, I might be able to get that upstreamed?
+
+* Outputs
+Generate other low-level HDLs.
+  1. FIRRTL?
+  2. CIRCT?
+  3. VHDL
+  4. SystemVerilog
+
+* Simulator
+Chil should include a simulator alongside it.
+Requirements:
+  * Should be multi-threaded, to improve execution speed, if possible.
+  * If a "core" assertion in the simulation testbench fails, then a Lisp core image should be saved (~sb-ext:save-lisp-and-die~).
+  * This core image should allow for "rewinding" the world to see the sequence of events that caused an assertion violation.
+
+Methods to achieve requirements:
+  1. Simulator should use transactional memory?
+     * SMTX Common Lisp library makes it easy to use transactional memory in CL.
+     * This may also make multithreading the simulator easier?
+     * If the simulator's core image dump (~sb-ext:save-lisp-and-die~) includes the log of memory transactions internally, rewinding the image is simple, without dependencies.
+     * [[https://spritely.institute/][Goblins]] implemented this with transactional heaps.
+       [[https://spritely.institute/news/introducing-a-distributed-debugger-for-goblins-with-time-travel.html][Goblins Distributed Debugger with Time Travel]] is almost exactly what I would like.
+     * Could use [[https://lfe.io/][Lisp Flavoured Erlang]] too, and have Erlang actors handle that.
+       I don't know if there is a way for a "core dump" to be made though, as LFE compiles to BEAM bytecode and runs on top of there.
+  2. Simulator must record the state changes in the circuit to a DB for rewind?
+     Does the transactional memory allow that too?
+     If the transaction log of memory allows for recording to disk, then replay should be somewhat trivial.
+     * Jason recommended RRDTool as a time-series database.
+       If a database is needed, that might make more sense.
