@@ -46,6 +46,5 @@
             (lisp-unit2:with-summary ()
              (lisp-unit2:run-tests
               :package :chil/tests
-              :name :chil
-              :run-contexts #'lisp-unit2:with-summary-context))
+              :name :chil))
       "))))
