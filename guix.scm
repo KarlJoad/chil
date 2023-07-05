@@ -58,7 +58,8 @@
   (version (git-version))
   (source (local-file (dirname %srcdir) #:recursive? #t))
   (native-inputs
-   (list cl-lisp-unit2
+   (list autoconf automake ;; Building the manual
+         cl-lisp-unit2
          sbcl))
   (inputs
    (list cl-alexandria
