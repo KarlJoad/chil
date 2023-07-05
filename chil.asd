@@ -31,3 +31,21 @@
   :components ((:file "example")
                (:file "write-verilog")
                (:file "utils")))
+
+(defmethod asdf:perform ((o asdf:test-op) (c (eql (find-system :chil))))
+  ;; ASDF produces this warning
+  ;;WARNING:
+  ;; Deprecated recursive use of (ASDF/OPERATE:OPERATE 'ASDF/LISP-ACTION:LOAD-OP
+  ;; '("chil/tests")) while visiting (ASDF/LISP-ACTION:TEST-OP "chil") - please
+  ;; use proper dependencies instead
+  ;; This occurs because I invoke ASDF's operate inside another call to asdf:operate
+  ;; See https://gitlab.common-lisp.net/asdf/asdf/-/issues/13 for how to fix
+  (asdf:oos 'asdf:load-op :chil/tests)
+  (let ((*package* (find-package :chil/tests)))
+    (eval (read-from-string "
+            (lisp-unit2:with-summary ()
+             (lisp-unit2:run-tests
+              :package :chil/tests
+              :name :chil
+              :run-contexts #'lisp-unit2:with-summary-context))
+      "))))

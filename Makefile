@@ -19,5 +19,4 @@ build: $(chil_files)
 chil_tests := chil.asd $(shell find ./tests/ -type f -name '*.lisp')
 .PHONY: check
 check: $(chil_files) $(chil_tests)
-	$(lisp_eval) '(asdf:test-system :chil)' \
-	--eval "(lisp-unit2:run-tests :package :chil/tests :run-contexts #'lisp-unit2:with-summary-context)"
+	$(lisp_eval) '(asdf:test-system :chil)'
