@@ -45,6 +45,7 @@ simulators.
 * Optimization::                Optimizing and lowering Chil.
 * Simulation::                  Simulating Chil.
 * Verification::                Verifying Chil.
+* Synthesis::                   Synthesizing Chil to hardware.
 * Contributing::                You can help too!
 @end menu
 
@@ -199,6 +200,9 @@ why the design experienced a violation.
 A goal with Chil is to enable easier formal verification of both the
 high-level Chil description and its lower-level outputs.  To this end,
 the verifier will use the same Lisp syntax as the rest of Chil.
+
+@node Synthesis
+@chapter Synthesis
 
 @node Contributing
 @chapter Contributing
