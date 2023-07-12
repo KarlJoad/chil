@@ -21,6 +21,7 @@
        Should use catch/signal/error/handler-bind for real thing though. See Chapter 2.2 for that.
      * Might want to use restarts instead?
      * Reference the [[https://lispcookbook.github.io/cl-cookbook][Common Lisp Cookbook]]
+     * Investigate how [[https://github.com/Shirakumo/kandria][Kandria]] did mixins for their simulator.
 
 * Optimization
 Within Chil, I would like to have an optimization framework for the higher-level language.
