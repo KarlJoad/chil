@@ -60,6 +60,7 @@
   (native-inputs
    (list autoconf automake ;; Building the manual
          cl-lisp-unit2
+         cl-log4cl
          sbcl))
   (inputs
    (list cl-alexandria
