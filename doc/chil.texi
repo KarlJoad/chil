@@ -44,6 +44,7 @@ simulators.
 * Hardware Language::           Chil, the language.
 * Optimization::                Optimizing and lowering Chil.
 * Simulation::                  Simulating Chil.
+* Verification::                Verifying Chil.
 * Contributing::                You can help too!
 @end menu
 
@@ -191,6 +192,13 @@ why the design experienced a violation.
 
 @node Physical Simulation
 @section Physical Simulation
+
+@node Verification
+@chapter Verification
+
+A goal with Chil is to enable easier formal verification of both the
+high-level Chil description and its lower-level outputs.  To this end,
+the verifier will use the same Lisp syntax as the rest of Chil.
 
 @node Contributing
 @chapter Contributing
