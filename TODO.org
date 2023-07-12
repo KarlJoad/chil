@@ -46,7 +46,7 @@ Requirements:
 
 Methods to achieve requirements:
   1. Simulator should use transactional memory?
-     * SMTX Common Lisp library makes it easy to use transactional memory in CL.
+     * [[https://stmx.org/][SMTX Common Lisp library]] makes it easy to use transactional memory in CL.
      * This may also make multithreading the simulator easier?
      * If the simulator's core image dump (~sb-ext:save-lisp-and-die~) includes the log of memory transactions internally, rewinding the image is simple, without dependencies.
      * [[https://spritely.institute/][Goblins]] implemented this with transactional heaps.
