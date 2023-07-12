@@ -43,6 +43,7 @@ simulators.
 * Introduction::                What is Chil?
 * Hardware Language::           Chil, the language.
 * Optimization::                Optimizing and lowering Chil.
+* Simulation::                  Simulating Chil.
 * Contributing::                You can help too!
 @end menu
 
@@ -144,6 +145,52 @@ sections.
 @section Pass 1
 
 This first pass does something.
+
+@node Simulation
+@chapter Simulation
+
+@menu
+* Logic Simulation::            Simulating the design's logic.
+* Physical Simulation::         Simulating the design's physics.
+@end menu
+
+@node Logic Simulation
+@section Logic Simulation
+
+Chil's simulator, like other HDL simulators, will simulate the design
+under ideal digital conditions.  This means wires update their state
+instantaneously, the clock is perfectly synchronized throughout the
+physical layout, among other assumptions.  This is usually enough to
+understand issues with the design at an early stage.
+
+A critical feature in the design of Chil's digital simulator is
+@b{@xref{Snapshotting}}.  With snapshotting, when an assertion about the
+design is violated, the simulator generates a Common Lisp image with a
+REPL that contains all the information about the design's simulation
+preceding the violation.  The user is able to open and run this image
+and inspect the state of the design at the time of the violation, and
+even go backward in time!
+
+For more in-depth simulation, namely of the physical properties of the
+hardware, we turn to physical simulation @pxref{Physical Simulation}.
+
+@menu
+* Snapshotting::                Stopping the world and investigating.
+@end menu
+
+@node Snapshotting
+@subsection Snapshotting
+
+The key feature of Chil's simulator is its ability to ``snapshot'' the
+design when an assertion is violated.  When such a violation occurs, a
+Common Lisp core image is stored on-disk.  This image will include a
+@emph{full} Common Lisp REPL inside it, allowing the user to interact
+with the design.  Further, by construction, the image and REPL will
+allow the user to travel back in time to @b{interactively investigate}
+why the design experienced a violation.
+
+@node Physical Simulation
+@section Physical Simulation
 
 @node Contributing
 @chapter Contributing
