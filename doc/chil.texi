@@ -42,6 +42,7 @@ simulators.
 @menu
 * Introduction::                What is Chil?
 * Hardware Language::           Chil, the language.
+* Optimization::                Optimizing and lowering Chil.
 * Contributing::                You can help too!
 @end menu
 
@@ -105,6 +106,44 @@ expect. Chisel's default connection operator simply connects the first
 signal in one module to the first signal in the other module, and so
 on.} connection primitive for a Chisel design.  Chisel had that feature,
 but only in the experimental package at the time.
+
+@node Optimization
+@chapter Optimization
+
+Chil uses a nanopass optimization framework to optimize its high-level
+description down to a lower-level language.  @uref{https://nanopass.org,
+Nanopass optimization} is an idea from optimizing compiler design.  It
+was first described in a whitepaper describing how to teach building
+optimizing compilers
+(@uref{https://legacy.cs.indiana.edu/~dyb/pubs/nano-jfp.pdf, original
+description}). The core idea is that a single optimization pass should
+perform just one easily-understood task which will be layered to perform
+more advanced optimizations.
+
+Most commercial compilers (including GCC and LLVM) implement
+optimization passes that change large amounts of the program being
+compiled in a single pass. A criticism of the original whitepaper was
+that any nanopass compiler would not produce code as optimized as these
+commercial compilers.  However, in Andrew Keep's
+@uref{https://andykeep.com/pubs/dissertation.pdf, PhD thesis}, he showed
+that many of these small passes is just as effective as commercial
+compilers' larger ones.
+
+Using a nanopass optimization methodology to compile Chil's high-level
+description of a circuit down to a lower level means that new passes can
+be added relatively easily.
+
+Each of the currently supported passes is described in the following
+sections.
+
+@menu
+* Pass 1::                      The first pass to run.
+@end menu
+
+@node Pass 1
+@section Pass 1
+
+This first pass does something.
 
 @node Contributing
 @chapter Contributing
