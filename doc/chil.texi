@@ -41,6 +41,7 @@ simulators.
 
 @menu
 * Introduction::                What is Chil?
+* Hardware Language::           Chil, the language.
 * Contributing::                You can help too!
 @end menu
 
@@ -73,6 +74,37 @@ language as the design is written in.
 @item
 Synthesize to hardware, if possible.
 @end enumerate
+
+@node Hardware Language
+@chapter Hardware Language
+
+@uref{https://www.chisel-lang.org/, Chisel} introduced the world to
+using an embedded domain-specific language@tie{}(EDSL) for hardware
+design.  In many ways, this brought hardware design languages into the
+21st Century.  Chisel allows for designs to:
+@itemize
+@item
+Inherit from multiple sub-component definitions, through direct
+object-oriented inheritance or through trait/typeclass/component
+composition.
+@item
+Use functional programming ideas to improve the replication of portions
+of the design.  Namely, Chisel uses a strong and strict type system,
+makes heavy use of immutability, and frequently uses higher-order
+functions to express repeatedly complex operations.
+@end itemize
+
+Chisel is built out of and on top of the
+@uref{https://www.scala-lang.org/, Scala} software programming language.
+While Scala is a fine language, it has some issues as well.  Most
+notably (in the author's opinion) is the difficulty in creating new
+Chisel components that require altering Chisel's internal behaviors.  As
+an example, the author needed to have a directioned@footnote{This means
+the input to one module connects to an output from another, as you would
+expect. Chisel's default connection operator simply connects the first
+signal in one module to the first signal in the other module, and so
+on.} connection primitive for a Chisel design.  Chisel had that feature,
+but only in the experimental package at the time.
 
 @node Contributing
 @chapter Contributing
