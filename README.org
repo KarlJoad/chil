@@ -26,6 +26,9 @@ CHIL builds using the standard ASDF build system.
 Make sure ASDF is capable of finding your copy of CHIL.
    1. ~(asdf:compile-system :chil)~
 
+If you want to *force* a rebuild, ASDF supports that too.
+~(asdf:compile-system :chil :force t)~.
+
 ** Testing
 CHIL uses lisp-unit2 for its unit testing system.
 
