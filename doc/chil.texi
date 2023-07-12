@@ -230,6 +230,14 @@ referring to people, such as
 @uref{https://en.wikipedia.org/wiki/Singular_they, singular
 ``they''@comma{} ``their''@comma{} ``them''}, and so forth.
 
+@quotation Heads Up
+Please be sure to test your code with multiple Common Lisp
+implementations before submitting your changes!  Chil is written using
+ANSI-compliant Common Lisp, so any conforming implementation should
+work.  Chil is currently tested with @uref{https://www.sbcl.org/, SBCL}
+and @uref{https://ccl.clozure.com/, CCL}.
+@end quotation
+
 @node Writing Documentation
 @section Writing Documentation
 
