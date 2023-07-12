@@ -43,6 +43,7 @@ simulators.
 * Introduction::                What is Chil?
 * Hardware Language::           Chil, the language.
 * Optimization::                Optimizing and lowering Chil.
+* Code Generation::             Generating other HDLs and IR HDLs.
 * Simulation::                  Simulating Chil.
 * Verification::                Verifying Chil.
 * Synthesis::                   Synthesizing Chil to hardware.
@@ -148,6 +149,36 @@ sections.
 @section Pass 1
 
 This first pass does something.
+
+@node Code Generation
+@chapter Code Generation
+
+Chil does @b{not} lock you into using Chil or its tools.  A variety of
+backends are supported, allowing you to take your Chil designs
+elsewhere, if you choose.
+
+@menu
+* Verilog::                     Chil generating Verilog.
+* CIRCT::                       Chil generating LLVM CIRCT.
+* FIRRTL::                      Chil generating Chisel FIRRTL.
+@end menu
+
+@node Verilog
+@section Verilog
+
+Chisel has targeted Verilog, because it is easier to generate correct
+Verilog than VHDL or SystemVerilog.
+
+@node CIRCT
+@section CIRCT
+
+CIRCT is an intermediate representation backed by LLVM and its
+framework.
+
+@node FIRRTL
+@section FIRRTL
+
+FIRRTL is an intermediate representation used by Chisel.
 
 @node Simulation
 @chapter Simulation
