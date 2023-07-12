@@ -49,3 +49,10 @@
               :package :chil/tests
               :name :chil))
       "))))
+
+(defsystem :chil/sim
+  :author "Karl Hallsby <karl@hallsby.com>"
+  :description "Chil Snapshotting Digital Simulator"
+  :pathname #p"source/sim/"
+  :components ((:file "sim"))
+  :depends-on (:log4cl))
