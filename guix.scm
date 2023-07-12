@@ -57,7 +57,6 @@
   (name "chil")
   (version (git-version))
   (source (local-file (dirname %srcdir) #:recursive? #t))
-  (build-system asdf-build-system/sbcl)
   (native-inputs
    (list cl-lisp-unit2
          sbcl))
@@ -67,6 +66,7 @@
          cl-slynk
          ;; cl-stmx ;; Transactional memory for simulator updates. https://stmx.org/features/
          ))
+  (build-system asdf-build-system/sbcl)
   (synopsis "Constructing Hardware in Lisp")
   (description "CHIL (Constructing Hardware in Lisp)")
   (home-page "http://github.com/KarlJoad/chil")
