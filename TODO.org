@@ -53,6 +53,9 @@ Methods to achieve requirements:
        [[https://spritely.institute/news/introducing-a-distributed-debugger-for-goblins-with-time-travel.html][Goblins Distributed Debugger with Time Travel]] is almost exactly what I would like.
      * Could use [[https://lfe.io/][Lisp Flavoured Erlang]] too, and have Erlang actors handle that.
        I don't know if there is a way for a "core dump" to be made though, as LFE compiles to BEAM bytecode and runs on top of there.
+     * Transactional Heaps?
+       - [[https://apps.dtic.mil/sti/pdfs/ADA306269.pdf][Safe and Efficient Persistent Heaps]]
+       - [[https://dl.acm.org/doi/10.1145/1961295.1950380][NV-Heaps: Making Persistent Objects Fast and Safe]]
   2. Simulator must record the state changes in the circuit to a DB for rewind?
      Does the transactional memory allow that too?
      If the transaction log of memory allows for recording to disk, then replay should be somewhat trivial.
