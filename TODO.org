@@ -62,3 +62,4 @@ Methods to achieve requirements:
      If the transaction log of memory allows for recording to disk, then replay should be somewhat trivial.
      * Jason recommended RRDTool as a time-series database.
        If a database is needed, that might make more sense.
+  3. [[https://dspace.mit.edu/bitstream/handle/1721.1/44215/MIT-CSAIL-TR-2009-002.pdf?sequence=1&isAllowed=y][Propagators]]?
