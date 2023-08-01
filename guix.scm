@@ -36,6 +36,7 @@
              (guix licenses)
              (guix utils)
              (guix gexp)
+             (guix git-download)
              (guix build-system asdf)
              (gnu packages)
              (gnu packages autotools)
@@ -44,20 +45,24 @@
              (gnu packages lisp-xyz)
              (gnu packages lisp-check))
 
-(define %srcdir
-  (or (current-source-directory) "source"))
-
 (define (git-version)
-  (let* ((pipe (with-directory-excursion %srcdir
+  (let* ((pipe (with-directory-excursion (current-source-directory)
                  (open-pipe* OPEN_READ "git" "describe" "--always" "--tags")))
          (version (read-line pipe)))
     (close-pipe pipe)
     version))
 
+(define vcs-file?
+  ;; Return true if the given file is under version control.
+  (or (git-predicate (current-source-directory))
+      (const #t)))
+
 (package
   (name "chil")
   (version (git-version))
-  (source (local-file (dirname %srcdir) #:recursive? #t))
+  (source (local-file "." "chil-checkout"
+                      #:recursive? #t
+                      #:select? vcs-file?))
   (native-inputs
    (list autoconf automake texinfo ;; Building the manual
          cl-lisp-unit2
