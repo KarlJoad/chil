@@ -1,5 +1,6 @@
 AC_INIT([Chil], [0.1])
 AC_CONFIG_SRCDIR([source])
+AM_INIT_AUTOMAKE([foreign])
 
 # Checks for a Lisp program.
 AC_SUBST(LISP_PROGRAM)

@@ -1,9 +1,9 @@
-LISP := @LISP_PROGRAM@
+LISP_PROG := @LISP_PROG_PROGRAM@
 LISP_FLAGS := --no-userinit --non-interactive
 
 makefile_dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-lisp_eval := $(LISP) $(LISP_FLAGS) \
+lisp_eval := $(LISP_PROG) $(LISP_FLAGS) \
              --eval '(require "asdf")' \
              --eval '(asdf:load-asd "$(makefile_dir)/chil.asd")' \
              --eval
@@ -21,19 +21,4 @@ chil_tests := chil.asd $(shell find ./tests/ -type f -name '*.lisp')
 check: $(chil_files) $(chil_tests)
 	$(lisp_eval) '(asdf:test-system :chil)'
 
-# Generate documentation
-MAKEINFO := @MAKEINFO@
-
 include doc/local.mk
-chil_manual := doc/chil.texi
-.PHONY: info
-info: $(chil_manual)
-	test "$(MAKEINFO)" = "no" || $(MAKEINFO) --output=$(chil_manual:%.texi=%.info) $(chil_manual)
-
-.PHONY: doc/chil.pdf
-doc/chil.pdf: $(chil_manual)
-	test "$(MAKEINFO)" = "no" || $(MAKEINFO) --pdf --output=$(chil_manual:%.texi=%.pdf) $(chil_manual)
-
-.PHONY: doc/chil.html
-doc/chil.html: $(chil_manual)
-	test "$(MAKEINFO)" = "no" || $(MAKEINFO) --html --output=$(chil_manual:%.texi=%.html) $(chil_manual)
