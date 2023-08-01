@@ -39,6 +39,7 @@
              (guix build-system asdf)
              (gnu packages)
              (gnu packages autotools)
+             (gnu packages texinfo)
              (gnu packages lisp)
              (gnu packages lisp-xyz)
              (gnu packages lisp-check))
@@ -58,7 +59,7 @@
   (version (git-version))
   (source (local-file (dirname %srcdir) #:recursive? #t))
   (native-inputs
-   (list autoconf automake ;; Building the manual
+   (list autoconf automake texinfo ;; Building the manual
          cl-lisp-unit2
          cl-log4cl
          sbcl))
