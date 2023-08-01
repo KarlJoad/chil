@@ -75,12 +75,13 @@
       #:phases
       #~(modify-phases %standard-phases
           (add-after 'install 'install-manual
-            (lambda* (#:key (make-flags '()) outputs #:allow-other-keys)
+            (lambda* (#:key (configure-flags '()) (make-flags '()) outputs
+                      #:allow-other-keys)
               (let* ((out  (assoc-ref outputs "out"))
                      (info (string-append out "/share/info")))
-                (invoke "./bootstrap.sh")
-                (invoke "sh" "./configure" "SHELL=sh")
-                (apply invoke "make" "doc/chil.info" make-flags)
+                (invoke "./bootstrap")
+                (apply invoke "sh" "./configure" "SHELL=sh" configure-flags)
+                (apply invoke "make" "info" make-flags)
                 (install-file "doc/chil.info" info)))))))
   (synopsis "Constructing Hardware in Lisp")
   (description "CHIL (Constructing Hardware in Lisp)")
