@@ -47,6 +47,7 @@ simulators.
 * Simulation::                  Simulating Chil.
 * Verification::                Verifying Chil.
 * Synthesis::                   Synthesizing Chil to hardware.
+* Interaction::                 Using Chil from the command-line.
 * Resources::                   Resources Chil used for inspiration.
 * Contributing::                You can help too!
 @end menu
@@ -235,6 +236,35 @@ the verifier will use the same Lisp syntax as the rest of Chil.
 
 @node Synthesis
 @chapter Synthesis
+
+@node Interaction
+@chapter Interaction
+
+To interact with Chil, a command system will be built.  This system will
+be composed of both compiled programs and scripts.  The goal here is to
+have a minimal set of actions that allow the user to handle compiling
+and building a Chil circuit.
+
+@menu
+* Tcl Compatibility::           Using Tcl/Tk scripts with Chil.
+@end menu
+
+@node Tcl Compatibility
+@section Tcl Compatibility
+
+Tcl is a string-oriented, lexically-scoped, dynamically-typed,
+lately-bound, procedural scripting language.  See
+@uref{https://www.tcl.tk, Tcl/Tk's home website} for in-depth
+information.
+
+For Chil to have any wide-spread usage in industrial areas,
+compatibility @emph{and} integration with Tcl is a requirement.
+
+Tcl2CL implements most of Tcl's scripting interface. When Tcl2CL
+encounters a Tcl procedure it cannot understand, it is output literally.
+This literal output allows for the conversion of scripts that use custom
+procedures to a set of Chil instructions that can be executed by the
+Chil system.
 
 @node Resources
 @chapter Resources
