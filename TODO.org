@@ -63,3 +63,6 @@ Methods to achieve requirements:
      * Jason recommended RRDTool as a time-series database.
        If a database is needed, that might make more sense.
   3. [[https://dspace.mit.edu/bitstream/handle/1721.1/44215/MIT-CSAIL-TR-2009-002.pdf?sequence=1&isAllowed=y][Propagators]]?
+
+* Verification
+  1. [[https://dl.acm.org/doi/10.1145/263699.263712][Proof-Carrying Code]]
