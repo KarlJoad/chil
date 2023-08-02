@@ -45,13 +45,6 @@
              (gnu packages lisp-xyz)
              (gnu packages lisp-check))
 
-(define (git-version)
-  (let* ((pipe (with-directory-excursion (current-source-directory)
-                 (open-pipe* OPEN_READ "git" "describe" "--always" "--tags")))
-         (version (read-line pipe)))
-    (close-pipe pipe)
-    version))
-
 (define vcs-file?
   ;; Return true if the given file is under version control.
   (or (git-predicate (current-source-directory))
@@ -59,7 +52,7 @@
 
 (package
   (name "chil")
-  (version (git-version))
+  (version "0.1")
   (source (local-file "." "chil-checkout"
                       #:recursive? #t
                       #:select? vcs-file?))
