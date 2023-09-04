@@ -73,6 +73,12 @@ nanopass framework for optimizations, to make understanding a single
 optimization easier and make adding additional optimization passes
 simpler.
 @item
+Using the nanopass framework also means that a design can be output at
+the end of each optimization pass for simulation and formal
+verification.  Indeed, we can create special passes to lower to other
+formal specification variants which can be verified.
+@c Nanopass HDL, certain lowering can output other variants to formally verify.
+@item
 Create a digital logic simulator that supports snapshotting, interactive
 debugging, and time travel.
 @item
