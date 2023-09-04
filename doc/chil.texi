@@ -193,6 +193,7 @@ FIRRTL is an intermediate representation used by Chisel.
 @menu
 * Logic Simulation::            Simulating the design's logic.
 * Physical Simulation::         Simulating the design's physics.
+* Property-Based Testing::      Testing the design using properties.
 @end menu
 
 @node Logic Simulation
@@ -277,6 +278,28 @@ value specified somewhere by the user.
 
 @node Physical Simulation
 @section Physical Simulation
+
+@node Property-Based Testing
+@section Property-Based Testing
+
+@c Need reference for prop-based testing.
+Another method of verification is the use of property-based testing.
+This is similar to formal verification, where the user provides a
+specification of the behavior in the form of a test/assertion. Then the
+computer will generate random inputs and attempt to find an example that
+breaks your assertion.  A good property-based tester also refines its
+counterexamples until it finds a minimally-reproducible input that
+violates your assertion.  This is, essentially, automated test-driven
+development.  NOTE: This is @b{not} formal verification!  Formal
+verification is a process where the semantics of your hardware are
+proven against a @emph{mathematical} model.  Property-based testing is
+only testing, not proving.
+
+Ideally, the property-based tester and the simulator play together to
+automatically run tests, kill the simulation, etc.  The simulator only
+needs to be run if the item being tested needs to.  For instance, the
+@t{log2up} function should work fine without running through a
+simulator, because that is compile-/elaboration-time math.
 
 @node Verification
 @chapter Verification
