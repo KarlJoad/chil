@@ -217,6 +217,7 @@ hardware, we turn to physical simulation @pxref{Physical Simulation}.
 
 @menu
 * Snapshotting::                Stopping the world and investigating.
+* Instrumenting::               How to run & instrument simulations.
 @end menu
 
 @node Snapshotting
@@ -229,6 +230,50 @@ Common Lisp core image is stored on-disk.  This image will include a
 with the design.  Further, by construction, the image and REPL will
 allow the user to travel back in time to @b{interactively investigate}
 why the design experienced a violation.
+
+@node Instrumenting
+@subsection Instrumenting
+@c Simulator must have module that is DUT marked/annotated.
+@c Instrument only direct descendents and siblings in module tree by default.
+@c Is this faster?
+@c Control the modules inside the DUT with a DUT additive flags (you can use just one or a combination).
+@c This flag should have self/descendents/siblings/all options.
+@c Simulation annotations are a lowering that should exist as a nanopass pass.
+
+For a module to be simulated, it must be contained within another module
+(maybe make this a special type? @t{(driver ... (let (dut (instantiate
+my-module))))} where @t{driver} is a macro wrapper for module & goodies)
+inside of it.  The DUT is the simulation driver and must be marked with
+a DUT flag.
+
+The simulator must consume a module that has at least (at most?) one
+module marked/annotated as the DUT@tie{}(Design Under Test).  This way
+we only need to instrument (at least?) direct descendents.  If we create
+an optional amount of DUT depth, we could control our observation of
+signals.  The user could control the depth of the DUT module to
+simulator only:
+@itemize
+@item
+Self: Only the DUT module should have instrumentation.  This is only
+useful for modules that are leaves in the module hierarchy.
+@item
+Descendents: The DUT module and all descendent modules are instrumented.
+This is useful for multi-module simulation.
+@item
+Siblings: The DUT module and all sibling modules are instrumented.
+NOTE: How is sibling defined?  How would this be useful?
+@item
+All: The DUT module and @emph{all modules} are instrumented.  This is
+equivalent to how normal simulators handle things.
+@end itemize
+
+The reasoning behind this additional flag is that recording the values
+of instrumented modules slows down simulation.  By only instrumenting
+what is necessary, the simulator can run faster.
+
+The addition of the DUT flag for simulation should be a pass in the
+nanopass framework.  Where the flag(s) is/are generated will depend on a
+value specified somewhere by the user.
 
 @node Physical Simulation
 @section Physical Simulation
