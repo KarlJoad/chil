@@ -79,3 +79,8 @@ GTAGS
 /guile.am
 /m4/*
 Makefile
+install-sh
+mdate-sh
+Makefile.in
+missing
+texinfo.tex
