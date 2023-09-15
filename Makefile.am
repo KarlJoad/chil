@@ -1,4 +1,4 @@
-LISP_PROG := @LISP_PROG_PROGRAM@
+LISP_PROG := @LISP_PROGRAM@
 LISP_FLAGS := --no-userinit --non-interactive
 
 makefile_dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
