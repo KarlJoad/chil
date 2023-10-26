@@ -22,6 +22,10 @@
      * Might want to use restarts instead?
      * Reference the [[https://lispcookbook.github.io/cl-cookbook][Common Lisp Cookbook]]
      * Investigate how [[https://github.com/Shirakumo/kandria][Kandria]] did mixins for their simulator.
+  3. One-way enum for FSM
+     Specialization of an enum that only allows you to traverse in one direction.
+     ~(next oneway-enum signal)~ moves you to next state when signal goes high.
+     Special-case this because complicated FSMs typically have cycles in their control flow (looping).
 
 * Optimization
 Within Chil, I would like to have an optimization framework for the higher-level language.
