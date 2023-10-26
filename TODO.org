@@ -1,5 +1,10 @@
 #+TITLE: TODO
 
+* Compilation Targets
+A variety of compilation targets should be available, either for debugging or performance.
+To make code "steppable" you must have set ~debug~ to be greater than ~speed~, ~space~, and ~compilation-speed~.
+This can be done with the ~declaim~ function.
+
 * Testing
   1. Property-based testing of pure functions.
      For example, ~chil:log2up~ should be property tested.
