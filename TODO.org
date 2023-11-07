@@ -12,6 +12,9 @@ This can be done with the ~declaim~ function.
      Possible candidates:
      * [[https://github.com/DalekBaldwin/check-it][check-it]] (Last update 2015-06-05)
      * [[https://github.com/mcandre/cl-quickcheck][cl-quickcheck]] (Last update 2020-05-08)
+  2. Automated generation of test programs for modules requiring simulation.
+     Interesting works in software:
+     * [[https://dl.acm.org/doi/10.1145/3428264][YARPGen]]
 
 * Higher-level Hardware
   1. Create higher-level versions of ~chil:module~ that is less painful to use, but can be converted into low-level Verilog-like format currently being used.
