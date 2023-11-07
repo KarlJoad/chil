@@ -98,6 +98,7 @@ Methods to achieve requirements:
 
 * Verification
   1. [[https://dl.acm.org/doi/10.1145/263699.263712][Proof-Carrying Code]]
+  2. Compare/contrast with [[https://symbiyosys.readthedocs.io/en/latest/][SymbiYosis]], Yosys's front-end to formal HW verification flows
 
 * Examples
   1. RISC-V core (Should support RISC-V GC, to boot Linux)
