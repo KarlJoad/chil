@@ -98,3 +98,19 @@ Methods to achieve requirements:
 
 * Verification
   1. [[https://dl.acm.org/doi/10.1145/263699.263712][Proof-Carrying Code]]
+
+* Examples
+  1. RISC-V core (Should support RISC-V GC, to boot Linux)
+     Getting many of these built will make my stuff equivalent to [[https://github.com/ucb-bar/riscv-sodor][Berkeley's RISC-V SODOR]].
+     1. Hardware support for single-, double-, and quad-precision floating point.
+        See [[https://github.com/ucb-bar/berkeley-hardfloat][Berkeley's HardFloat]].
+     2. Single-cycle
+     3. Multi-cycle
+     4. Pipelined (single issue)
+     6. Multi-issue in-order pipelined
+     7. Single-issue out-of-order
+     8. Multi-issue out-of-order
+  2. [[https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/][CHERI]] in Hardware
+     This has already been done with ARM, MIPS, and recently RISC-V.
+     But I want to implement on this.
+  3. Custom architecture
