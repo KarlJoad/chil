@@ -30,6 +30,7 @@ This can be done with the ~declaim~ function.
      * Might want to use restarts instead?
      * Reference the [[https://lispcookbook.github.io/cl-cookbook][Common Lisp Cookbook]]
      * Investigate how [[https://github.com/Shirakumo/kandria][Kandria]] did mixins for their simulator.
+       https://github.com/Shinmera/talks/tree/master
   3. One-way enum for FSM
      Specialization of an enum that only allows you to traverse in one direction.
      ~(next oneway-enum signal)~ moves you to next state when signal goes high.
