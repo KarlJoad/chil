@@ -344,8 +344,16 @@ Chil system.
 @chapter Resources
 @c TODO: Make @defres macro for define-resource
 @c See (texinfo) Definition Commands
-@c Resource for making a nanopass compiler
-@c https://youtu.be/Os7FE3J-U5Q
+
+@table @samp
+@item Nanopass Compiler & Framework
+@url{https://youtu.be/Os7FE3J-U5Q}
+@item Timeline Types
+@url{https://dl.acm.org/doi/abs/10.1145/3591234}
+@item Spade HDL
+@url{https://spade-lang.org/}
+@end table
+
 
 @node Contributing
 @chapter Contributing
