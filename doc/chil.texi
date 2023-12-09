@@ -347,13 +347,20 @@ Chil system.
 
 @table @samp
 @item Nanopass Compiler & Framework
-@url{https://youtu.be/Os7FE3J-U5Q}
+@url{https://youtu.be/Os7FE3J-U5Q}@*
+@url{https://nanopass.org/}@*
+@url{https://andykeep.com/pubs/dissertation.pdf}
+
 @item Timeline Types
 @url{https://dl.acm.org/doi/abs/10.1145/3591234}
+
 @item Spade HDL
-@url{https://spade-lang.org/}
+@url{https://spade-lang.org/}@*
+@url{https://zenodo.org/records/10149647}
+
 @item Calyx
-@url{https://github.com/cucapra/calyx}
+@url{https://github.com/cucapra/calyx}@*
+@url{https://rachit.pl/files/pubs/calyx.pdf}
 @end table
 
 
