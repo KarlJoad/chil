@@ -358,7 +358,7 @@ Chil system.
 @url{https://spade-lang.org/}@*
 @url{https://zenodo.org/records/10149647}
 
-@item Calyx
+@item Calyx@tie{}(an HDL IR)
 @url{https://github.com/cucapra/calyx}@*
 @url{https://rachit.pl/files/pubs/calyx.pdf}
 
