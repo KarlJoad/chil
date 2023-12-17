@@ -67,8 +67,7 @@
     (list cl-alexandria
           cl-slime-swank
           cl-slynk
-          ;; cl-stmx ;; Transactional memory for simulator updates. https://stmx.org/features/
-          ))
+          cl-check-it))
    (build-system asdf-build-system/sbcl)
    ;; (build-system asdf-build-system/source) ;; Maybe use this?
    (arguments

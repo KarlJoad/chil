@@ -27,7 +27,7 @@
   :in-order-to ((test-op (test-op "chil/tests"))))
 
 (defsystem :chil/tests
-  :depends-on (:chil :alexandria :lisp-unit2)
+  :depends-on (:chil :alexandria :lisp-unit2 :check-it)
   :pathname #p"tests/"
   :components ((:file "example")
                (:file "write-verilog")
